@@ -1,6 +1,8 @@
 import 'package:facebook_responsive_clone/config/palette.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/screens.dart';
+
 void main() {
   runApp(MyApp());
 }
