@@ -1,5 +1,7 @@
 import 'package:facebook_responsive_clone/config/palette.dart';
+import 'package:facebook_responsive_clone/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -21,6 +23,14 @@ class HomeScreen extends StatelessWidget {
             ),
             centerTitle: false,
             floating: true,
+            actions: [
+              CircleButton(Icons.search, 30, () {
+                print('Search');
+              }),
+              CircleButton(MdiIcons.facebookMessenger, 30, () {
+                print('Messenger');
+              }),
+            ],
           )
         ],
       ),
