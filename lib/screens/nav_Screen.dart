@@ -1,4 +1,7 @@
+import 'package:facebook_responsive_clone/screens/screens.dart';
+import 'package:facebook_responsive_clone/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class NavScreen extends StatefulWidget {
   @override
@@ -6,8 +9,35 @@ class NavScreen extends StatefulWidget {
 }
 
 class _NavScreenState extends State<NavScreen> {
+  final List<Widget> _screens = [
+    HomeScreen(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+    Scaffold(),
+  ];
+  final List<IconData> _icons = [
+    Icons.home,
+    Icons.ondemand_video,
+    MdiIcons.accountCircleOutline,
+    MdiIcons.accountGroupOutline,
+    MdiIcons.bellOutline,
+    Icons.menu,
+  ];
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return DefaultTabController(
+      length: _icons.length,
+      child: Scaffold(
+        body: _screens[_selectedIndex],
+        bottomNavigationBar: CustomTabBar(
+            icons: _icons,
+            selectedIndex: _selectedIndex,
+            onTap: (index) => setState(() => _selectedIndex = index)),
+      ),
+    );
   }
 }
