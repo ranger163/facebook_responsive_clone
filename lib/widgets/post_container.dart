@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:facebook_responsive_clone/config/palette.dart';
 import 'package:facebook_responsive_clone/models/models.dart';
 import 'package:facebook_responsive_clone/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
@@ -40,6 +41,10 @@ class PostContainer extends StatelessWidget {
                 imageUrl: post.imageUrl,
               ),
             ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+            child: _PostStats(post),
+          )
         ],
       ),
     );
@@ -89,6 +94,55 @@ class _PostHeader extends StatelessWidget {
         IconButton(
           icon: Icon(Icons.more_horiz),
           onPressed: () => print('More'),
+        )
+      ],
+    );
+  }
+}
+
+class _PostStats extends StatelessWidget {
+  final Post post;
+
+  _PostStats(this.post);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 20,
+              width: 20,
+              child: CircleAvatar(
+                backgroundColor: Palette.facebookBlue,
+                child: Icon(
+                  Icons.thumb_up,
+                  size: 10,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            Expanded(
+                child: Text(
+              '${post.likes}',
+              style: TextStyle(color: Colors.grey[600]),
+            )),
+            Text(
+              '${post.comments} Comments',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Text(
+              '${post.shares} Shares',
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+          ],
         )
       ],
     );
