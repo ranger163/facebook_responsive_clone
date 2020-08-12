@@ -11,12 +11,13 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    _ScreenPlaceHolder('Videos will appear here'),
+    _ScreenPlaceHolder('Profile will appear here'),
+    _ScreenPlaceHolder('Groups will appear here'),
+    _ScreenPlaceHolder('Notifications will appear here'),
+    _ScreenPlaceHolder('Setting will appear here'),
   ];
+
   final List<IconData> _icons = [
     Icons.home,
     Icons.ondemand_video,
@@ -25,6 +26,7 @@ class _NavScreenState extends State<NavScreen> {
     MdiIcons.bellOutline,
     Icons.menu,
   ];
+
   int _selectedIndex = 0;
 
   @override
@@ -41,6 +43,23 @@ class _NavScreenState extends State<NavScreen> {
             selectedIndex: _selectedIndex,
             onTap: (index) => setState(() => _selectedIndex = index)),
       ),
+    );
+  }
+}
+
+class _ScreenPlaceHolder extends StatelessWidget {
+  final String text;
+
+  _ScreenPlaceHolder(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+          child: Text(
+        text,
+        style: TextStyle(color: Colors.black),
+      )),
     );
   }
 }
