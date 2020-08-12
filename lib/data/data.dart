@@ -1,9 +1,9 @@
 import 'package:facebook_responsive_clone/models/models.dart';
 
 final User currentUser = User(
-  name: 'Marcus Ng',
+  name: 'Ahmed Nassar',
   imageUrl:
-      'https://images.unsplash.com/photo-1578133671540-edad0b3d689e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
+      'https://scontent-hbe1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/90094740_230753907975008_5757387092164012217_n.jpg?_nc_ht=scontent-hbe1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=lK4iW7rQ7ScAX9UlqiD&oh=cd18563f4f1726e1eb683402a1f88969&oe=5F5C2D5C',
 );
 
 final List<User> onlineUsers = [
@@ -167,9 +167,9 @@ final List<Story> stories = [
 final List<Post> posts = [
   Post(
     user: currentUser,
-    caption: 'Check out these cool puppers',
+    caption: 'What a lovely parakeets <3 ',
     timeAgo: '58m',
-    imageUrl: 'https://images.unsplash.com/photo-1525253086316-d0c936c814f8',
+    imageUrl: 'https://images.unsplash.com/photo-1589313444720-737117f0f7dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80',
     likes: 1202,
     comments: 184,
     shares: 96,
