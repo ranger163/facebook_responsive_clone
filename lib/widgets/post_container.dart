@@ -3,6 +3,7 @@ import 'package:facebook_responsive_clone/config/palette.dart';
 import 'package:facebook_responsive_clone/models/models.dart';
 import 'package:facebook_responsive_clone/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class PostContainer extends StatelessWidget {
   final Post post;
@@ -143,8 +144,70 @@ class _PostStats extends StatelessWidget {
               style: TextStyle(color: Colors.grey[600]),
             ),
           ],
+        ),
+        const Divider(),
+        Row(
+          children: [
+            _PostButton(
+              icon: Icon(
+                MdiIcons.thumbUpOutline,
+                color: Colors.grey[600],
+                size: 20,
+              ),
+              label: 'Like',
+              onTap: () => print('Like'),
+            ),_PostButton(
+              icon: Icon(
+                MdiIcons.commentOutline,
+                color: Colors.grey[600],
+                size: 20,
+              ),
+              label: 'Comment',
+              onTap: () => print('Comment'),
+            ),_PostButton(
+              icon: Icon(
+                MdiIcons.shareOutline,
+                color: Colors.grey[600],
+                size: 25,
+              ),
+              label: 'Share',
+              onTap: () => print('Share'),
+            ),
+          ],
         )
       ],
+    );
+  }
+}
+
+class _PostButton extends StatelessWidget {
+  final Icon icon;
+  final String label;
+  final Function onTap;
+
+  _PostButton({this.icon, this.label, this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                icon,
+                const SizedBox(
+                  width: 4,
+                ),
+                Text(label),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
